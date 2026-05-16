@@ -1,5 +1,14 @@
 # Change Log
 
+## [2026-05-16] Vercel 官方工具集成
+- 安装 `@vercel/analytics` 依赖包
+- 安装 `@vercel/speed-insights` 依赖包
+- 在根布局文件 `src/app/layout.tsx` 中添加 `<Analytics />` 和 `<SpeedInsights />` 组件
+- 更新知识库文章：「Vercel Analytics 集成.md」→「Vercel 官方工具集成.md」
+- 位置：技术实践/开发经验/
+- 更新 index.md 索引
+- 部署后在 Vercel 项目控制台的 Analytics 和 Speed Insights 标签页中分别启用
+
 ## [2026-05-16] Vercel Analytics 集成
 - 安装 `@vercel/analytics` 依赖包
 - 在根布局文件 `src/app/layout.tsx` 中添加 `<Analytics />` 组件

@@ -93,7 +93,7 @@
 ### 技术实践
 
 #### 开发经验
-- [[技术实践/开发经验/Vercel Analytics 集成]] - Vercel 官方网络流量分析工具的集成
+- [[技术实践/开发经验/Vercel Analytics 集成]] - Vercel 官方分析和性能监控工具的集成
 - [[技术实践/开发经验/Next.js App Router 路由状态保持问题修复]] - Next.js App Router 路由切换时组件状态保持问题的完整修复经验
 - [[技术实践/开发经验/Markdown链接编码问题修复]] - Markdown 链接中文字符和空格的编码问题修复
 - [[技术实践/开发经验/GoogleFonts性能问题修复]] - Google Fonts 导致服务器启动慢和报错的问题修复

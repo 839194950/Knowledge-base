@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: "蒸鱼知识库",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
