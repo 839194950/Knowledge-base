@@ -58,12 +58,15 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
       })
       .attr("fill", (d: any) => {
         const colors: Record<number, string> = {
-          0: "#9980ff",
-          1: "#4a90d9",
-          2: "#e57373",
-          3: "#81c784",
-          4: "#ffb74d",
-          5: "#64b5f6",
+          0: "#9980ff",  // index - 紫色
+          1: "#F59E0B",  // AI 工具与技术 - 琥珀色
+          2: "#EF4444",  // LLM Wiki 生态 - 红色
+          3: "#10B981",  // 关于本站 - 绿色
+          4: "#3B82F6",  // 安全 - 蓝色
+          5: "#8B5CF6",  // 开发记录 - 紫色
+          6: "#F97316",  // 投资理财 - 橙色
+          7: "#14B8A6",  // 笔记与知识管理 - 青色
+          8: "#6B7280",  // 资料存档 - 灰色
         };
         return colors[d.group] || "#4a4a4a";
       })
@@ -116,12 +119,15 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
       });
 
       const colors: Record<number, string> = {
-        0: "#9980ff",
-        1: "#4a90d9",
-        2: "#e57373",
-        3: "#81c784",
-        4: "#ffb74d",
-        5: "#64b5f6",
+        0: "#9980ff",  // index - 紫色
+        1: "#F59E0B",  // AI 工具与技术 - 琥珀色
+        2: "#EF4444",  // LLM Wiki 生态 - 红色
+        3: "#10B981",  // 关于本站 - 绿色
+        4: "#3B82F6",  // 安全 - 蓝色
+        5: "#8B5CF6",  // 开发记录 - 紫色
+        6: "#F97316",  // 投资理财 - 橙色
+        7: "#14B8A6",  // 笔记与知识管理 - 青色
+        8: "#6B7280",  // 资料存档 - 灰色
       };
 
       node
@@ -147,12 +153,15 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
 
     const handleMouseOut = () => {
       const colors: Record<number, string> = {
-        0: "#9980ff",
-        1: "#4a90d9",
-        2: "#e57373",
-        3: "#81c784",
-        4: "#ffb74d",
-        5: "#64b5f6",
+        0: "#9980ff",  // index - 紫色
+        1: "#F59E0B",  // AI 工具与技术 - 琥珀色
+        2: "#EF4444",  // LLM Wiki 生态 - 红色
+        3: "#10B981",  // 关于本站 - 绿色
+        4: "#3B82F6",  // 安全 - 蓝色
+        5: "#8B5CF6",  // 开发记录 - 紫色
+        6: "#F97316",  // 投资理财 - 橙色
+        7: "#14B8A6",  // 笔记与知识管理 - 青色
+        8: "#6B7280",  // 资料存档 - 灰色
       };
 
       node

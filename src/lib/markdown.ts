@@ -531,11 +531,14 @@ export async function getGraphData(): Promise<GraphData> {
 
   const typeToGroup: Record<string, number> = {
     "index": 0,
-    "人物与工具": 1,
-    "核心概念": 2,
-    "资料存档": 3,
-    "关于本站": 4,
-    "投资理财": 5,
+    "AI 工具与技术": 1,
+    "LLM Wiki 生态": 2,
+    "关于本站": 3,
+    "安全": 4,
+    "开发记录": 5,
+    "投资理财": 6,
+    "笔记与知识管理": 7,
+    "资料存档": 8,
   };
 
   // 先创建节点映射
@@ -544,11 +547,14 @@ export async function getGraphData(): Promise<GraphData> {
   for (const page of pages) {
     let type = "other";
     if (page.slug === "index") type = "index";
-    else if (page.slug.startsWith("人物与工具/")) type = "人物与工具";
-    else if (page.slug.startsWith("核心概念/")) type = "核心概念";
-    else if (page.slug.startsWith("资料存档/")) type = "资料存档";
+    else if (page.slug.startsWith("AI 工具与技术/")) type = "AI 工具与技术";
+    else if (page.slug.startsWith("LLM Wiki 生态/")) type = "LLM Wiki 生态";
     else if (page.slug.startsWith("关于本站/")) type = "关于本站";
+    else if (page.slug.startsWith("安全/")) type = "安全";
+    else if (page.slug.startsWith("开发记录/")) type = "开发记录";
     else if (page.slug.startsWith("投资理财/")) type = "投资理财";
+    else if (page.slug.startsWith("笔记与知识管理/")) type = "笔记与知识管理";
+    else if (page.slug.startsWith("资料存档/")) type = "资料存档";
 
     nodes.push({
       id: page.slug,
