@@ -12,11 +12,11 @@ export default function ContentArea({ children, breadcrumb }: ContentAreaProps) 
     <div className="flex flex-col h-full overflow-hidden">
       {/* 面包屑导航 */}
       {breadcrumb && breadcrumb.length > 0 && (
-        <nav className="px-6 py-4 border-b border-gray-200 bg-gray-50 flex-shrink-0">
-          <ol className="flex items-center space-x-2 text-sm text-gray-500">
+        <nav className="px-3 md:px-6 py-2 md:py-4 border-b border-gray-200 bg-gray-50 flex-shrink-0">
+          <ol className="flex items-center space-x-1 md:space-x-2 text-xs md:text-sm text-gray-500">
           {breadcrumb.map((item, index) => (
             <li key={index} className="flex items-center">
-              {index > 0 && <span className="mx-2 text-gray-400">/</span>}
+              {index > 0 && <span className="mx-1 md:mx-2 text-gray-400">/</span>}
               {item.href ? (
                 <Link href={item.href} className="hover:text-gray-700 hover:underline">
                   {item.name}

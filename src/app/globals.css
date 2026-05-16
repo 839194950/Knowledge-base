@@ -207,3 +207,25 @@ nextjs-portal,
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* 响应式字体基础设置 */
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* prose 响应式调整 */
+.prose {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .prose {
+    font-size: 1rem;
+  }
+}

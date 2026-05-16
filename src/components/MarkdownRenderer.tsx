@@ -200,19 +200,19 @@ export default function MarkdownRenderer({ content }: { content: string }) {
         components={{
           h1: (props) => (
             <h1
-              className="text-4xl font-extrabold mt-10 mb-6 tracking-tight text-gray-900 border-b-2 border-purple-200 pb-3"
+              className="text-2xl md:text-3xl lg:text-4xl font-extrabold mt-6 md:mt-10 mb-4 md:mb-6 tracking-tight text-gray-900 border-b-2 border-purple-200 pb-2 md:pb-3"
               {...props}
             />
           ),
           h2: (props) => (
             <h2
-              className="text-2.5xl font-bold mt-9 mb-5 tracking-tight text-gray-800 pl-4 border-l-4 border-purple-400"
+              className="text-xl md:text-2xl lg:text-2.5xl font-bold mt-6 md:mt-9 mb-3 md:mb-5 tracking-tight text-gray-800 pl-3 md:pl-4 border-l-3 md:border-l-4 border-purple-400"
               {...props}
             />
           ),
           h3: (props) => (
             <h3
-              className="text-xl font-semibold mt-7 mb-4 text-gray-700 flex items-center gap-2"
+              className="text-lg md:text-xl font-semibold mt-5 md:mt-7 mb-2 md:mb-4 text-gray-700 flex items-center gap-2"
               {...props}
             >
               <span className="text-purple-500 font-bold">●</span>
@@ -221,18 +221,18 @@ export default function MarkdownRenderer({ content }: { content: string }) {
           ),
           h4: (props) => (
             <h4
-              className="text-lg font-medium mt-6 mb-3 text-gray-600 italic"
+              className="text-base md:text-lg font-medium mt-4 md:mt-6 mb-2 md:mb-3 text-gray-600 italic"
               {...props}
             />
           ),
-          p: (props) => <p className="leading-7 mb-4" {...props} />,
-          ul: (props) => <ul className="list-disc pl-6 mb-4 space-y-1" {...props} />,
-          ol: (props) => <ol className="list-decimal pl-6 mb-4 space-y-1" {...props} />,
-          li: (props) => <li className="leading-7" {...props} />,
+          p: (props) => <p className="leading-6 md:leading-7 mb-3 md:mb-4" {...props} />,
+          ul: (props) => <ul className="list-disc pl-5 md:pl-6 mb-3 md:mb-4 space-y-1" {...props} />,
+          ol: (props) => <ol className="list-decimal pl-5 md:pl-6 mb-3 md:mb-4 space-y-1" {...props} />,
+          li: (props) => <li className="leading-6 md:leading-7" {...props} />,
           blockquote: (props) => (
-            <blockquote className="border-l-4 border-purple-400 pl-4 italic text-gray-600 my-4" {...props} />
+            <blockquote className="border-l-4 border-purple-400 pl-3 md:pl-4 italic text-gray-600 my-3 md:my-4" {...props} />
           ),
-          hr: (props) => <hr className="border-gray-200 my-8" {...props} />,
+          hr: (props) => <hr className="border-gray-200 my-6 md:my-8" {...props} />,
           a: ({ href, children, ...props }) => {
             if (href?.includes("/wiki/missing/concept/")) {
               return (
@@ -270,7 +270,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
             );
           },
           table: (props) => (
-            <div className="overflow-x-auto my-6">
+            <div className="overflow-x-auto my-4 md:my-6">
               <table className="min-w-full border-collapse" {...props} />
             </div>
           ),
@@ -279,12 +279,12 @@ export default function MarkdownRenderer({ content }: { content: string }) {
           tr: (props) => <tr className="hover:bg-gray-50 transition-colors" {...props} />,
           th: (props) => (
             <th
-              className="px-4 py-3 text-left text-sm font-semibold border border-gray-200 bg-gray-50"
+              className="px-2 md:px-4 py-2 md:py-3 text-left text-xs md:text-sm font-semibold border border-gray-200 bg-gray-50"
               {...props}
             />
           ),
           td: (props) => (
-            <td className="px-4 py-3 text-sm border border-gray-200 align-top" {...props} />
+            <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm border border-gray-200 align-top" {...props} />
           ),
           pre: ({ className, children, ...props }) => {
             const codeContent = getCodeContent(children);
@@ -346,9 +346,9 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                       borderRadius: 0,
                       borderTopLeftRadius: 0,
                       borderTopRightRadius: 0,
-                      fontSize: "14px",
-                      lineHeight: "1.6",
-                      padding: "16px",
+                      fontSize: "13px",
+                      lineHeight: "1.5",
+                      padding: "12px",
                     }}
                     showLineNumbers={false}
                     wrapLines={true}
