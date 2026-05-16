@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: "蒸鱼知识库",
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className="antialiased min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
+        <Analytics />
       </body>
     </html>
   );

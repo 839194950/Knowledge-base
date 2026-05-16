@@ -1,5 +1,13 @@
 # Change Log
 
+## [2026-05-16] Vercel Analytics 集成
+- 安装 `@vercel/analytics` 依赖包
+- 在根布局文件 `src/app/layout.tsx` 中添加 `<Analytics />` 组件
+- 创建知识库文章：「Vercel Analytics 集成.md」
+- 位置：技术实践/开发经验/
+- 更新 index.md 索引，添加新文章链接
+- 部署后在 Vercel 项目控制台的 Analytics 标签页中点击 Enable 即可启用
+
 ## [2026-05-16] /diagramize | 为格式化字符串漏洞系列文章添加 Mermaid 图表
 - 为「格式化字符串漏洞利用」文章添加 3 个图表：
   - 利用技术流程图（从漏洞发现到获取Shell）
