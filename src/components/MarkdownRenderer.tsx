@@ -361,7 +361,8 @@ export default function MarkdownRenderer({ content }: { content: string }) {
             );
           },
           code: ({ node, className, children, ...props }) => {
-            const parentTagName = node?.parent?.tagName;
+            // @ts-ignore - react-markdown 类型定义不完整，但实际运行时有 parent 属性
+            const parentTagName = (node as any)?.parent?.tagName;
             const isInline = !parentTagName || parentTagName !== "PRE";
             
             if (isInline) {
