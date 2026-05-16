@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fafafa;
+  --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --border: #e5e5e5;
+  --accent: #262626;
+  --accent-foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --card: #171717;
+    --card-foreground: #ededed;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --border: #262626;
+    --accent: #ffffff;
+    --accent-foreground: #000000;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+.prose pre {
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.prose pre code {
+  font-family: "JetBrains Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+}
+
+.prose .mermaid {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.prose .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.prose .token.keyword {
+  color: #c678dd;
+}
+
+.prose .token.string {
+  color: #98c379;
+}
+
+.prose .token.number {
+  color: #d19a66;
+}
+
+.prose .token.function {
+  color: #61afef;
+}
+
+.prose .token.comment {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.prose .token.class-name {
+  color: #e6c07b;
+}
+
+.prose .token.variable {
+  color: #e06c75;
+}
+
+.prose code:not(pre code) {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: "JetBrains Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+}
+
+.prose pre:not(.mermaid-code) {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.prose .mermaid-code {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {
+  color: #c678dd;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-attribute,
+.hljs-literal,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-addition {
+  color: #98c379;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #5c6370;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-class .hljs-title {
+  color: #d19a66;
+}
+
+.hljs-function .hljs-title,
+.hljs-title.function_ {
+  color: #61afef;
+}
+
+/* 隐藏 Next.js 开发错误覆盖层 */
+nextjs-portal,
+#__next-error-overlay,
+[class*="error-overlay"],
+[data-nextjs-toast],
+[role="alert"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
