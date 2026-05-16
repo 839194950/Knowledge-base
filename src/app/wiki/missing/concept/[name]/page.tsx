@@ -36,10 +36,6 @@ export default async function MissingConceptPage({
           </Link>
         </div>
       </div>
-
-      <div className="mt-8 text-gray-400 text-sm">
-        <p>💡 提示：你可以建议创建这个概念页面！</p>
-      </div>
     </div>
   );
 }
