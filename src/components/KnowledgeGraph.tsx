@@ -17,7 +17,6 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
   useEffect(() => {
     if (!svgRef.current || !containerRef.current || !data.nodes.length) return;
 
-    // 清空现有内容
     d3.select(svgRef.current).selectAll("*").remove();
 
     const svg = d3.select(svgRef.current);
@@ -25,20 +24,14 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
     const width = container.width || 800;
     const height = container.height || 600;
 
-    // 设置 SVG 基本属性，背景完全透明！
     svg
       .attr("width", "100%")
       .attr("height", "100%")
       .attr("viewBox", `0 0 ${width} ${height}`)
-      .style("cursor", "grab")
-      .style("display", "block")
-      .style("background-color", "transparent")
-      .style("background", "none");
+      .style("cursor", "grab");
 
-    // 创建主容器
-    const gContainer = svg.append("g");
+    const g = svg.append("g");
 
-    // 计算节点度
     const degreeMap = new Map<string, number>();
     data.nodes.forEach(node => {
       degreeMap.set(node.id, 0);
@@ -48,18 +41,14 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
       degreeMap.set(link.target, (degreeMap.get(link.target) || 0) + 1);
     });
 
-    // 先画连线（在底层）
-    const link = gContainer
-      .selectAll("line")
+    const link = g.selectAll("line")
       .data(data.links)
       .join("line")
       .attr("stroke", "#b8b8b8")
       .attr("stroke-opacity", 0.8)
       .attr("stroke-width", 1.5);
 
-    // 再画节点（在中间层）
-    const node = gContainer
-      .selectAll("circle")
+    const node = g.selectAll("circle")
       .data(data.nodes)
       .join("circle")
       .attr("r", (d: any) => {
@@ -80,9 +69,7 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
       })
       .style("cursor", "pointer");
 
-    // 最后画标签（在顶层）
-    const label = gContainer
-      .selectAll("text")
+    const label = g.selectAll("text")
       .data(data.nodes)
       .join("text")
       .text((d: any) => d.title || d.id)
@@ -96,16 +83,14 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
       .style("pointer-events", "none")
       .style("user-select", "none");
 
-    // 缩放行为
     const zoom = d3.zoom<SVGSVGElement, unknown>()
       .scaleExtent([0.1, 5])
       .on("zoom", (event) => {
-        gContainer.attr("transform", event.transform);
+        g.attr("transform", event.transform);
       });
 
     svg.call(zoom);
 
-    // 拖拽函数
     const dragstarted = (event: any, d: any) => {
       if (!event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
@@ -123,7 +108,6 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
       d.fy = null;
     };
 
-    // 交互函数
     const handleMouseOver = (event: any, d: any) => {
       const neighbors = new Set([d.id]);
       data.links.forEach(l => {
@@ -186,7 +170,6 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
         .attr("opacity", 1);
     };
 
-    // 给节点添加交互
     node
       .call((d3.drag() as any)
         .on("start", dragstarted)
@@ -199,7 +182,6 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
         router.push(`/wiki/${d.id}`);
       });
 
-    // 模拟
     const simulation = d3.forceSimulation<any>(data.nodes)
       .force("link", d3.forceLink(data.links).id((d: any) => d.id).distance(160))
       .force("charge", d3.forceManyBody().strength(-550))
@@ -227,7 +209,6 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
         });
     });
 
-    // 重置函数
     (window as any).resetToIndex = function() {
       const targetNode = data.nodes.find(n => n.id === "index");
       if (!targetNode) return;
@@ -246,7 +227,6 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
         .call(zoom.transform, d3.zoomIdentity.translate(translateX, translateY).scale(scale));
     };
 
-    // 窗口 resize 处理
     const handleResize = () => {
       if (!containerRef.current) return;
       const newContainer = containerRef.current.getBoundingClientRect();
@@ -264,10 +244,8 @@ export default function KnowledgeGraph({ data }: KnowledgeGraphProps) {
   }, [data, router]);
 
   return (
-    <div ref={containerRef} className="relative w-full h-full overflow-hidden bg-white">
+    <div ref={containerRef} className="w-full h-full relative">
       <svg ref={svgRef} className="w-full h-full" />
-      
-      {/* 控制按钮 */}
       <div className="absolute bottom-5 right-5 flex flex-col gap-2.5 z-10">
         <button
           onClick={() => (window as any).resetToIndex?.()}
