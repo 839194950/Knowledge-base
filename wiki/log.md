@@ -1,5 +1,73 @@
 # Change Log
 
+## [2026-05-16] /diagramize | 为 3 篇文章添加 Mermaid 图表
+- **MCP (Model Context Protocol) 文章**：
+  - 添加 MCP 架构流程图（graph LR）
+  - 添加 MCP 思维导图（mindmap）
+  - 更新 frontmatter：diagramized: true, diagramizedAt: 2026-05-16
+- **Skills 文章**：
+  - 添加 Skills vs MCP 关系图（graph TD）
+  - 添加 Skills 思维导图（mindmap）
+  - 更新 frontmatter：diagramized: true, diagramizedAt: 2026-05-16
+- **格式化字符串漏洞原理介绍 文章**：
+  - 添加格式化字符串漏洞思维导图（mindmap）
+  - 更新 frontmatter：diagramized: true, diagramizedAt: 2026-05-16
+- 图表类型包括：架构流程图、思维导图、对比关系图，增强文章可读性！
+
+## [2026-05-16] /classify | 分类结构重构（重大更新）
+- **设计新分类体系**：
+  - 创建「AI 工具与技术」分类，包含 AI 工具（Claude Code）和 AI 技术（MCP、Skills、RAG）
+  - 创建「LLM Wiki 生态」分类，将 LLM Wiki 基础和 LLM Wiki 工具放在一起，高度相关内容集中管理
+  - 创建「笔记与知识管理」分类，包含笔记工具、笔记方法、重要人物
+  - 创建「开发记录」分类，将知识库开发相关内容集中管理
+  - 保持「安全」、「投资理财」、「资料存档」、「关于本站」分类不变
+- **迁移内容**：
+  - 从「技术实践/AI 工具」迁移到「AI 工具与技术/AI 工具」
+  - 从「核心概念/AI 技术」迁移到「AI 工具与技术/AI 技术」
+  - 从「核心概念/LLM Wiki 基础」迁移到「LLM Wiki 生态/LLM Wiki 基础」
+  - 从「人物与工具/LLM Wiki 工具」迁移到「LLM Wiki 生态/LLM Wiki 工具」
+  - 从「人物与工具/笔记工具」迁移到「笔记与知识管理/笔记工具」
+  - 从「核心概念/笔记方法」迁移到「笔记与知识管理/笔记方法」
+  - 从「人物与工具/重要人物」迁移到「笔记与知识管理/重要人物」
+  - 从「技术实践/开发经验」迁移到「开发记录/知识库开发」
+- **更新内容**：
+  - 创建所有新分类的 _category.md 介绍页面
+  - 更新所有迁移文章的 frontmatter（categories 和 categoryPath）
+  - 完全重写 index.md 索引，反映新分类结构
+  - 删除旧分类目录：技术实践/、人物与工具/、核心概念/
+- **更新项目规则**：
+  - 在 `.trae/rules/个人知识库网站规则.md` 中添加新分类规则
+  - 新增规则：高度相关内容放在一起，根目录分类要具体
+  - 更新 AGENTS.md 文档
+- 新分类体系更直观，用户在根目录就能知道该去哪里找内容！
+
+## [2026-05-16] /ingest | 处理 Claude Code 保姆级教程视频
+- 从 Bilibili 抓取视频：「保姆级Claude Code速成，必学！简单！【附完整文档】」
+- 创建新分类：技术实践/AI 工具/
+- 创建分类介绍页面：技术实践/AI 工具/_category.md
+- 创建主教程页面：Claude Code 保姆级教程.md
+  - 包含完整概述、常见误区澄清
+  - 详细安装教程（Windows 环境）
+  - 国产模型配置（Kimi K2.6）
+  - MCP 介绍与使用
+  - Skills 介绍与使用
+  - 上下文管理方法
+  - 权限模式说明
+- 创建概念页面：MCP.md（Model Context Protocol）
+  - 包含概述、常用 MCP、安装方法
+  - 实战案例：浏览器自动搜索
+- 创建概念页面：Skills.md
+  - 包含概述、常用 Skills、安装方法
+  - 实战案例：视频制作
+  - Skills vs MCP 对比表格
+- 创建资料存档页面：保姆级Claude Code速成.md
+  - 包含完整视频信息、元数据
+  - 内容摘要和核心要点
+- 所有新页面都包含完整的双向链接，与现有知识库内容关联
+- 标记源文件为已处理（ingested: true）
+- 更新 index.md 索引，添加新分类和文章链接
+- Claude Code 系列内容处理完成！
+
 ## [2026-05-16] Vercel 官方工具集成
 - 安装 `@vercel/analytics` 依赖包
 - 安装 `@vercel/speed-insights` 依赖包

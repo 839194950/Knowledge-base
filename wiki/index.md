@@ -1,3 +1,13 @@
+---
+title: Wiki Index
+created: 2026-05-16
+updated: 2026-05-16
+categories: [Wiki维护]
+tags: [索引, 目录]
+sources: []
+confidence: high
+---
+
 # Wiki Index
 
 ## 概述
@@ -8,46 +18,47 @@
 
 ## 分类
 
-### 关于本站
+### AI 工具与技术
 
-#### 系统介绍
-- [[关于本站/系统介绍/LLM Wiki 模式原文]] - Andrej Karpathy 的 LLM Wiki 原文摘要
-- [[关于本站/系统介绍/LLM Wiki 介绍]] - LLM Wiki 模式的简化介绍
-
-### 人物与工具
-
-#### 重要人物
-- [[人物与工具/重要人物/Andrej Karpathy]] - 人工智能研究者，LLM Wiki 提出者
-
-#### 笔记工具
-- [[人物与工具/笔记工具/Obsidian]] - 基于本地 Markdown 的笔记软件
-- [[人物与工具/笔记工具/Marp]] - 基于 Markdown 的幻灯片格式
-- [[人物与工具/笔记工具/Dataview]] - Obsidian 查询插件
-
-#### LLM Wiki 工具
-- [[人物与工具/LLM Wiki 工具/NEXUS]] - 基于 LLM Wiki 的多代理记忆系统
-- [[人物与工具/LLM Wiki 工具/qmd]] - 本地 Markdown 搜索引擎
-- [[人物与工具/LLM Wiki 工具/llmwiki]] - LLM Wiki 模式的 CLI 工具
-- [[人物与工具/LLM Wiki 工具/SeekLink]] - 行级锚定检索工具
-- [[人物与工具/LLM Wiki 工具/Keel]] - Mac 知识管理应用
-- [[人物与工具/LLM Wiki 工具/scaffy]] - 项目启动工具
-
-### 核心概念
-
-#### LLM Wiki 基础
-- [[核心概念/LLM Wiki 基础/LLM Wiki]] - 使用 LLM 构建个人知识库的模式
-- [[核心概念/LLM Wiki 基础/LLM Wiki 三层架构]] - Raw sources → Wiki → Schema
-- [[核心概念/LLM Wiki 基础/LLM Wiki 操作流程]] - Ingest, Query, Lint
+#### AI 工具
+- [[AI 工具与技术/AI 工具/Claude Code 保姆级教程]] - Claude Code 的完整使用教程
 
 #### AI 技术
-- [[核心概念/AI 技术/RAG]] - 检索增强生成技术
+- [[AI 工具与技术/AI 技术/RAG]] - 检索增强生成技术
+- [[AI 工具与技术/AI 技术/MCP]] - Model Context Protocol，连接外部工具的接口
+- [[AI 工具与技术/AI 技术/Skills]] - 预设提示词的能力包
+
+### LLM Wiki 生态
+
+#### LLM Wiki 基础
+- [[LLM Wiki 生态/LLM Wiki 基础/LLM Wiki]] - 使用 LLM 构建个人知识库的模式
+- [[LLM Wiki 生态/LLM Wiki 基础/LLM Wiki 三层架构]] - Raw sources → Wiki → Schema
+- [[LLM Wiki 生态/LLM Wiki 基础/LLM Wiki 操作流程]] - Ingest, Query, Lint
+
+#### LLM Wiki 工具
+- [[LLM Wiki 生态/LLM Wiki 工具/NEXUS]] - 基于 LLM Wiki 的多代理记忆系统
+- [[LLM Wiki 生态/LLM Wiki 工具/qmd]] - 本地 Markdown 搜索引擎
+- [[LLM Wiki 生态/LLM Wiki 工具/llmwiki]] - LLM Wiki 模式的 CLI 工具
+- [[LLM Wiki 生态/LLM Wiki 工具/SeekLink]] - 行级锚定检索工具
+- [[LLM Wiki 生态/LLM Wiki 工具/Keel]] - Mac 知识管理应用
+- [[LLM Wiki 生态/LLM Wiki 工具/scaffy]] - 项目启动工具
+
+### 笔记与知识管理
+
+#### 笔记工具
+- [[笔记与知识管理/笔记工具/Obsidian]] - 基于本地 Markdown 的笔记软件
+- [[笔记与知识管理/笔记工具/Marp]] - 基于 Markdown 的幻灯片格式
+- [[笔记与知识管理/笔记工具/Dataview]] - Obsidian 查询插件
 
 #### 笔记方法
-- [[核心概念/笔记方法/Zettelkasten]] - 卡片盒笔记法
-- [[核心概念/笔记方法/原子笔记]] - 每个笔记只包含一个知识点
-- [[核心概念/笔记方法/MOC]] - 内容地图，知识导航页面
-- [[核心概念/笔记方法/盖尔定律]] - 复杂系统从简单系统演化而来
-- [[核心概念/笔记方法/Embrace Chaos]] - 拥抱混乱，关注知识连接而非分类
+- [[笔记与知识管理/笔记方法/Zettelkasten]] - 卡片盒笔记法
+- [[笔记与知识管理/笔记方法/原子笔记]] - 每个笔记只包含一个知识点
+- [[笔记与知识管理/笔记方法/MOC]] - 内容地图，知识导航页面
+- [[笔记与知识管理/笔记方法/盖尔定律]] - 复杂系统从简单系统演化而来
+- [[笔记与知识管理/笔记方法/Embrace Chaos]] - 拥抱混乱，关注知识连接而非分类
+
+#### 重要人物
+- [[笔记与知识管理/重要人物/Andrej Karpathy]] - 人工智能研究者，LLM Wiki 提出者
 
 ### 安全
 
@@ -90,15 +101,15 @@
 #### 投资策略
 - [[投资理财/投资策略/基金定投技巧终极指南-从入门到进阶-5大策略捕捉微笑曲线稳定增值]] - 基金定投从入门到进阶的完整指南
 
-### 技术实践
+### 开发记录
 
-#### 开发经验
-- [[技术实践/开发经验/Vercel Analytics 集成]] - Vercel 官方分析和性能监控工具的集成
-- [[技术实践/开发经验/Next.js App Router 路由状态保持问题修复]] - Next.js App Router 路由切换时组件状态保持问题的完整修复经验
-- [[技术实践/开发经验/Markdown链接编码问题修复]] - Markdown 链接中文字符和空格的编码问题修复
-- [[技术实践/开发经验/GoogleFonts性能问题修复]] - Google Fonts 导致服务器启动慢和报错的问题修复
-- [[技术实践/开发经验/代码高亮与Mermaid图表渲染问题排查记录]] - React + Mermaid 图表渲染问题排查和修复经验
-- [[技术实践/开发经验/Wiki frontmatter 标签识别问题修复记录]] - Wiki 文章 frontmatter 标签识别问题的完整排查和修复过程
+#### 知识库开发
+- [[开发记录/知识库开发/Vercel Analytics 集成]] - Vercel 官方分析和性能监控工具的集成
+- [[开发记录/知识库开发/Next.js App Router 路由状态保持问题修复]] - Next.js App Router 路由切换时组件状态保持问题的完整修复经验
+- [[开发记录/知识库开发/Markdown链接编码问题修复]] - Markdown 链接中文字符和空格的编码问题修复
+- [[开发记录/知识库开发/GoogleFonts性能问题修复]] - Google Fonts 导致服务器启动慢和报错的问题修复
+- [[开发记录/知识库开发/代码高亮与Mermaid图表渲染问题排查记录]] - React + Mermaid 图表渲染问题排查和修复经验
+- [[开发记录/知识库开发/Wiki frontmatter 标签识别问题修复记录]] - Wiki 文章 frontmatter 标签识别问题的完整排查和修复过程
 
 ### 资料存档
 
@@ -108,3 +119,10 @@
 
 #### 原始视频
 - [[资料存档/原始视频/喂饭教程-Obsidian新手教程]] - Obsidian 新手教程
+- [[资料存档/原始视频/保姆级Claude Code速成]] - Claude Code 保姆级教程
+
+### 关于本站
+
+#### 系统介绍
+- [[关于本站/系统介绍/LLM Wiki 模式原文]] - Andrej Karpathy 的 LLM Wiki 原文摘要
+- [[关于本站/系统介绍/LLM Wiki 介绍]] - LLM Wiki 模式的简化介绍
