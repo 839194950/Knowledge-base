@@ -295,15 +295,20 @@ export default function MarkdownRenderer({ content }: { content: string }) {
 
             let language = "text";
             if (children && typeof children === "object") {
-              if (children.props?.className) {
-                const match = children.props.className.match(/language-(\w+)/);
+              // Type assertion for ReactElement
+              const childElement = children as React.ReactElement;
+              if (childElement.props?.className) {
+                const match = childElement.props.className.match(/language-(\w+)/);
                 if (match) {
                   language = match[1];
                 }
-              } else if (Array.isArray(children) && children[0]?.props?.className) {
-                const match = children[0].props.className.match(/language-(\w+)/);
-                if (match) {
-                  language = match[1];
+              } else if (Array.isArray(children) && children[0]) {
+                const firstChild = children[0] as React.ReactElement;
+                if (firstChild.props?.className) {
+                  const match = firstChild.props.className.match(/language-(\w+)/);
+                  if (match) {
+                    language = match[1];
+                  }
                 }
               }
             }
