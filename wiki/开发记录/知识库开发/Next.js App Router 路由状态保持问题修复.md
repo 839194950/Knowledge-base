@@ -1,12 +1,14 @@
 ---
 title: Next.js App Router 路由状态保持问题修复
 created: 2026-05-16
-updated: 2026-05-16
+updated: 2026-05-17
 categories: [开发记录, 知识库开发]
 categoryPath: "开发记录/知识库开发"
 tags: [Next.js, React, App Router, 路由, 前端开发, 状态管理]
 sources: []
 confidence: high
+diagramized: true
+diagramizedAt: 2026-05-17
 ---
 
 # Next.js App Router 路由状态保持问题修复
@@ -27,6 +29,26 @@ confidence: high
 - 文件夹的展开/折叠状态保持不变
 
 ## 根因分析
+
+```mermaid
+graph TD
+    A["问题现象"] --> B["状态闪烁/重置"]
+    B --> C["初步尝试"]
+    C --> D["localStorage<br>保存滚动位置"]
+    C --> E["优化状态初始化"]
+    D --> F["❌ 未完全解决"]
+    E --> F
+    
+    F --> G["深入分析"]
+    G --> H["真正根因"]
+    H --> I["App Router 页面结构"]
+    I --> J["/wiki/page.tsx 与<br>/wiki/[...slug]/page.tsx<br>是独立页面"]
+    J --> K["路由变化时<br>重新挂载组件"]
+    K --> L["所有UI状态<br>包括滚动位置<br>都被重置"]
+    
+    style H fill:#f99
+    style K fill:#f99
+```
 
 ### 初步排查
 
@@ -60,6 +82,25 @@ src/app/
 ### 核心思路
 
 利用 Next.js App Router 的 **Layout 机制**：Layout 在同一路由组内的页面切换时不会被重新挂载。
+
+```mermaid
+graph LR
+    subgraph "原结构（有问题）"
+        A["/wiki/page.tsx<br>独立页面组件"]
+        B["/wiki/[...slug]/page.tsx<br>独立页面组件"]
+        A & B -.->|路由变化时<br>重新挂载| C["❌ 状态丢失"]
+    end
+    
+    subgraph "新结构（修复后）"
+        D["/wiki/layout.tsx<br>Layout组件<br>保持挂载"]
+        E["/wiki/page.tsx<br>返回null"]
+        F["/wiki/[...slug]/page.tsx<br>返回null"]
+        D -.->|路由变化时<br>不重新挂载| G["✅ 状态保持"]
+    end
+    
+    style C fill:#f99
+    style G fill:#9f9
+```
 
 ### 文件结构调整
 
@@ -163,6 +204,22 @@ const getOrCreateGlobalState = (defaultPaths: Set<string>) => {
 ✅ **流畅无闪烁** - 整个体验非常流畅，没有闪烁或跳变  
 
 ## 经验教训
+
+```mermaid
+mindmap
+  root["经验教训"]
+    不要盲目尝试修复
+      先分析根因
+      再系统性解决
+    理解框架原理
+      Page组件: 路由变化时重新挂载
+      Layout组件: 同组内保持挂载
+    使用正确工具
+      用框架特性解决问题
+      不要绕开机制
+    重视架构设计
+      组件层级选择很重要
+```
 
 ### 1. 不要盲目尝试修复
 
