@@ -1,17 +1,39 @@
 ---
 title: 主动基金 vs 指数基金
 created: 2026-05-16
-updated: 2026-05-16
+updated: 2026-05-17
 categories: [投资理财, 基金知识]
 categoryPath: "投资理财/基金知识"
 tags: [基金, 主动基金, 指数基金, 投资]
 sources: [raw/video/柴知道 - 明明白白买基金，清清楚楚亏大钱_10分钟基金入门指南.txt]
 confidence: high
+diagramized: true
+diagramizedAt: 2026-05-17
 ---
 
 # 主动基金 vs 指数基金
 
 ## 概述
+
+```mermaid
+graph LR
+    A[股票基金] --> B[主动基金]
+    A --> C[指数基金]
+    
+    B --> B1[基金经理选股]
+    B --> B2[目标跑赢市场]
+    B --> B3[费用较高]
+    B --> B4[人为影响大]
+    
+    C --> C1[指数规则选股]
+    C --> C2[目标跟上市场]
+    C --> C3[费用较低]
+    C --> C4[人为影响小]
+    
+    style A fill:#CCEEFF,stroke:#0066CC,stroke-width:2px
+    style B fill:#FFFFCC,stroke:#CC9900,stroke-width:2px
+    style C fill:#CCFFCC,stroke:#009900,stroke-width:2px
+```
 
 股票基金按「挑股票的方式」分为两类：
 
@@ -100,6 +122,33 @@ confidence: high
 
 ## 对比分析
 
+```mermaid
+mindmap
+  root((对比))
+    主动基金
+      选股人
+        基金经理
+      费用
+        高 1-1.5%
+      目标
+        跑赢市场
+      人为影响
+        大
+      透明度
+        一般
+    指数基金
+      选股人
+        指数规则
+      费用
+        低 <0.5%
+      目标
+        跟上市场
+      人为影响
+        小
+      透明度
+        高
+```
+
 ### 主动基金 vs 指数基金
 
 | 对比维度 | 主动基金 | 指数基金 |
@@ -111,6 +160,23 @@ confidence: high
 | **透明度** | 一般（季度才公布持仓） | 高（指数成分股公开） |
 
 ### 该选哪个？
+
+```mermaid
+graph TD
+    A{选哪种?} --> B{是否了解基金经理?}
+    B -->|是| C{相信能持续跑赢?}
+    C -->|是| D[选主动基金]
+    C -->|否| E[选指数基金]
+    B -->|否| E
+    F{是否愿意付高费用?} -->|是| D
+    F -->|否| E
+    G{是否想省事?} -->|是| E
+    G -->|否| D
+    
+    style A fill:#CCEEFF,stroke:#0066CC,stroke-width:2px
+    style D fill:#FFFFCC,stroke:#CC9900,stroke-width:2px
+    style E fill:#CCFFCC,stroke:#009900,stroke-width:2px
+```
 
 **选指数基金，如果你：**
 - 不想花时间研究基金经理
