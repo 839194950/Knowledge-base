@@ -147,6 +147,18 @@ confidence: high/medium/low
 - 使用 Obsidian wiki 图片链接格式：`![[图片文件名]]`
 - /ingest 时会将图片信息作为内容的一部分一起分析
 
+**本地 PDF 文件处理说明**：
+- 对于已存在于 `raw/pdfs/` 目录的 PDF 文件，使用 `extract_pdf.py` 脚本提取内容
+- 脚本位置：项目根目录下的 `extract_pdf.py`
+- 使用方法：
+  - 无参数：自动处理 `raw/pdfs/` 目录下的所有 PDF 文件
+  - 指定文件：`python extract_pdf.py <pdf文件路径>` - 处理单个 PDF 文件
+  - 指定输出目录：`python extract_pdf.py <pdf文件路径> -o <输出目录>`
+- 脚本会自动安装依赖（pdfplumber）
+- 提取后的内容格式：包含标题、来源、页数和逐页文本内容
+- 保存位置：默认保存到 `raw/articles/` 目录
+- 保存成功后，询问用户是否执行 `/ingest` 处理
+
 ***
 
 ### 1. Ingest - 摄入新源（AI 智能分类增强版 + 百科全书级内容质量）
