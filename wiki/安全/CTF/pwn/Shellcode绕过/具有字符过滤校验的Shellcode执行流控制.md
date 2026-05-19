@@ -1,4 +1,3 @@
-
 ---
 title: 具有字符过滤校验的Shellcode执行流控制深度解析
 created: 2026-05-18
@@ -112,17 +111,17 @@ call rax
 ```mermaid
 flowchart TD
     A[用户输入] --> B{校验函数开始}
-    B -->|第一个字节=0x00?
-    |第一个字节=0x00? -->|是| C[循环立即终止]
-    |第一个字节=0x00? -->|否| D[逐个检查每个字节]
-    D --> E{字节在白名单中?
-    E -->|是| F[继续下一个]
-    E -->|否| G[校验失败]
-    C --> H[返回校验通过]
-    H --> I[程序跳转到 RWX 区域执行]
-    I --> J[Shellcode 成功执行]
-    G --> K[程序输出报错]
-    J --> L[获得 Shell]
+    B --> C{首字节是Null?}
+    C -->|是| D[循环立即终止]
+    C -->|否| E[逐个检查每个字节]
+    E --> F{字节在白名单?}
+    F -->|是| G[继续下一个]
+    F -->|否| H[校验失败]
+    D --> I[返回校验通过]
+    I --> J[程序跳转到 RWX 区域]
+    J --> K[Shellcode 成功执行]
+    H --> L[程序输出报错]
+    K --> M[获得 Shell]
 ```
 
 ### 漏洞一：C 风格字符串处理二进制数据（Null 字节截断缺陷）
@@ -202,19 +201,19 @@ add byte ptr [rax], al
 ```mermaid
 flowchart LR
     subgraph 错误方案
-        A1["00 00"] --> B1["add byte ptr [rax], al"]
-        B1 --> C1["rax = 0x1"]
-        C1 --> D1["访问地址 0x1"]
-        D1 --> E1["Page Zero 受保护"]
-        E1 --> F1["SIGSEGV 崩溃"]
+        A1[00 00] --> B1[add byte ptr rax al]
+        B1 --> C1[rax 等于 0x1]
+        C1 --> D1[访问地址 0x1]
+        D1 --> E1[Page Zero 受保护]
+        E1 --> F1[SIGSEGV 崩溃]
     end
     
     subgraph 正确方案
-        A2["00 c0"] --> B2["add al, al"]
-        B2 --> C2["只修改寄存器"]
-        C2 --> D2["无内存访问"]
-        D2 --> E2["安全执行"]
-        E2 --> F2["RIP 滑到 Shellcode"]
+        A2[00 c0] --> B2[add al al]
+        B2 --> C2[只修改寄存器]
+        C2 --> D2[无内存访问]
+        D2 --> E2[安全执行]
+        E2 --> F2[RIP 滑到 Shellcode]
     end
     
     style 错误方案 fill:#ffdddd
@@ -321,7 +320,7 @@ io.interactive()
 
 如果不是专门的即时编译（JIT）引擎：
 - 任何生产环境下的缓冲区都不应该同时具备可写（W）和可执行（X）权限
-- 在分配动态内存时，应优先使用 `PROT_READ | PROT_WRITE`
+- 在分配动态内存时，应优先使用 `PROT_READ \| PROT_WRITE`
 - 在写入完毕后再通过 `mprotect` 将其修改为只读或只执行
 
 ---
@@ -331,4 +330,3 @@ io.interactive()
 - [[栈溢出基础]] - 基础栈溢出技术
 - [[控制程序执行流]] - 如何劫持程序执行流
 - [[获取地址]] - 如何在漏洞利用中获取关键地址
-
