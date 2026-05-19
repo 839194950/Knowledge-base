@@ -1,5 +1,25 @@
 # Change Log
 
+## [2026-05-19] /ingest - 处理文件包含漏洞CTF题目文章
+- **来源**：从 cnblogs.com 抓取文章「完整教程：BUUCTF[ACTF2020 新生赛]Include 1题解」
+- **创建新分类**：安全/CTF/Web安全/ 和 安全/CTF/Web安全/文件包含漏洞/
+- **创建分类介绍页面**：Web安全/_category.md、文件包含漏洞/_category.md
+- **创建高质量内容页面**：BUUCTF-ACTF2020新生赛-Include-1题解.md
+  - 详细的题目分析和解题过程
+  - 完整的 PHP 伪协议和 php://filter 详解
+  - 包含 2 个 Mermaid 流程图（漏洞利用原理、完整解题流程）
+- **创建相关概念页面**：
+  - 文件包含漏洞.md：文件包含漏洞原理、类型、利用方式详解
+  - PHP伪协议.md：常用 PHP 伪协议详解（php://filter、php://input、data:// 等）
+- **为新文章添加 Mermaid 图表**：
+  - 添加漏洞利用原理对比图（直接包含 vs 使用伪协议）
+  - 添加完整解题流程图
+- **更新相关页面和索引**：
+  - 在 index.md 添加新分类和文章链接
+  - 建立与相关概念页面的双向链接
+- **标记源文件已处理**：ingested: true, ingestedAt: 2026-05-19
+- Web安全分类从零开始，现在包含文件包含漏洞入门内容！
+
 ## [2026-05-18] /ingest - 处理栈迁移ROP利用技巧文章
 - **来源**：从 PDF 提取的技术分析文档，文件名「栈迁移ROP利用技巧 - Google Gemini.pdf」
 - **PDF解析**：使用 pdfplumber 工具提取 PDF 内容，转换为文本文件
