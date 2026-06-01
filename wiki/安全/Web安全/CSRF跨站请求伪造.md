@@ -284,7 +284,7 @@ graph TD
     G --> H[服务器接收请求]
     H --> I[从Session获取Token]
     I --> J[对比请求中的Token]
-    J --> K{Token是否一致？
+    J --> K{Token是否一致}
     K -->|是| L[执行请求]
     K -->|否| M[拒绝请求]
 ```
