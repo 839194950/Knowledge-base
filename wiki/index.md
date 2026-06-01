@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 created: 2026-05-16
-updated: 2026-05-18
+updated: 2026-06-01
 categories: [Wiki维护]
 tags: [索引, 目录]
 sources: []
@@ -123,6 +123,9 @@ confidence: high
 - [[汇编语言/应用实战/简单程序/汇编语言教程]] - 汇编语言教程概述、学习目标和工具介绍
 
 ### 安全
+
+#### Web安全
+- [[安全/Web安全/CSRF跨站请求伪造]] - CSRF跨站请求伪造漏洞原理、攻击方法和防御措施详解
 
 #### CTF
 
